@@ -1466,6 +1466,13 @@ bl@^4.1.0:
     inherits "^2.0.4"
     readable-stream "^3.4.0"
 
+bme-utils@^0.1.2-X:
+  version "0.1.2-X"
+  resolved "https://registry.yarnpkg.com/bme-utils/-/bme-utils-0.1.2-X.tgz#de6930b2be1ff13617888002fc5955ed4521c769"
+  integrity sha512-sm9DzH5T5OlhGo1h3OGcFYjMkZOaq97x397FyKmc26Hs60d7aR5REDoYbe0kG1Jk/CLNRt0OOGaHaKEx3LYp/w==
+  dependencies:
+    typescript "^4.3.5"
+
 body-parser@1.19.1:
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.19.1.tgz#1499abbaa9274af3ecc9f6f10396c995943e31d4"
