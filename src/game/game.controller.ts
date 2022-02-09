@@ -3,10 +3,9 @@ import { GameService } from './game.service';
 import { first, map } from 'rxjs';
 import { WordsService } from '../words/words.service';
 import { decodeBase64 } from '../utils';
-import { Status } from '../type/status.enum';
+import { ApiParam, ApiTags } from '@nestjs/swagger';
 
-const WORD_LENGTH = 5;
-
+@ApiTags('game')
 @Controller('game')
 export class GameController {
   constructor(
@@ -22,6 +21,11 @@ export class GameController {
   }
 
   @Get('start/:length')
+  @ApiParam({
+    name: 'length',
+    required: true,
+    type: 'number',
+  })
   getStartByLength(@Param() { length }) {
     return this.wordsService
       .randomWord(length)
@@ -29,6 +33,17 @@ export class GameController {
   }
 
   @Get('check/:word/:userWord')
+  @ApiParam({
+    name: 'word',
+    required: true,
+    type: 'string',
+    description: 'Needs to be encrypted with base64',
+  })
+  @ApiParam({
+    name: 'userWord',
+    required: true,
+    type: 'string',
+  })
   getCheck(@Param() { word, userWord }) {
     const decodedWord = decodeBase64(word);
 
